@@ -7,6 +7,10 @@ const port = process.env.PORT || 7000;
 app.use(morgan('dev'));
 app.use(cors());
 
+app.get('/style.css', (req, res) => {
+  res.sendFile(__dirname +  '/public/style.css')
+});
+
 app.get('*', (req,res)=> {
     res.sendFile(__dirname + '/public/index.html')
   });
